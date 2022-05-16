@@ -20,7 +20,7 @@ public class MainUI_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //test
+        //test test
     }
 
     private void ClickSetting()
