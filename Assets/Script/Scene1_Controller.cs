@@ -20,7 +20,6 @@ public class Scene1_Controller : MonoBehaviour
     }
     private void ClickBack()
     {
-
         Debug.Log("CLICK Back!");
         SceneManager.LoadScene("MainUI");
         Debug.Log("MainUI Load Success");
