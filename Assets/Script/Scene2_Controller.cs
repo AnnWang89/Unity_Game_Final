@@ -10,6 +10,7 @@ public class Scene2_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Start Scene2!");
         btnBack.onClick.AddListener(ClickBack);
 
     }
