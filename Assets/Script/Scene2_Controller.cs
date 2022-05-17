@@ -5,12 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Scene2_Controller : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Button btnBack;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start Scene2!");
         btnBack.onClick.AddListener(ClickBack);
 
     }

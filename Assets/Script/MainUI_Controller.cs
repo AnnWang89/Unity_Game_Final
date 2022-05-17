@@ -51,7 +51,7 @@ public class MainUI_Controller : MonoBehaviour
     }
     private void ClickEnd()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         
         Application.Quit();
         Debug.Log("Game Over");
