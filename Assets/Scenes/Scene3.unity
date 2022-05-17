@@ -2055,24 +2055,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1231873419245186938, guid: fdf678a7193c58346a367114b3da57ac, type: 3}
   m_PrefabInstance: {fileID: 1207427156}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1207427159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207427158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d76f27ccf677bbd498a4b8cedad3f088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  girl: {fileID: 1207427158}
-  moveSpeed: 10
-  jumpSpeed: 8
-  gravity: 20
-  moveSpeedDefault: 10
-  moveSpeedUP: 20
 --- !u!143 &1207427162
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2107,6 +2089,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1207427164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207427158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdebdc1c5a38b14d97a492949f19027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
+  gravity: 20
+  _rotationSpeed: 180
+  girl: {fileID: 1207427158}
 --- !u!1 &1217228984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,7 +2712,7 @@ GameObject:
   - component: {fileID: 1999908642}
   - component: {fileID: 1999908641}
   m_Layer: 0
-  m_Name: Terrain
+  m_Name: Scene3_Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
