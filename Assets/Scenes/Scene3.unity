@@ -9830,7 +9830,6 @@ MonoBehaviour:
   moveSpeed: 8
   gravity: 20
   _rotationSpeed: 180
-  girl: {fileID: 1207427158}
 --- !u!1 &1217228984
 GameObject:
   m_ObjectHideFlags: 0
