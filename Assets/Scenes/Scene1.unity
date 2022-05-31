@@ -75869,12 +75869,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2136967728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cdebdc1c5a38b14d97a492949f19027, type: 3}
+  m_Script: {fileID: 11500000, guid: 863bc9f1500d2af40b4967b52f78df7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  moveSpeed: 5
   gravity: 20
   _rotationSpeed: 180
+  girl: {fileID: 0}
 --- !u!4 &2136967734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2829148430046862697, guid: fdf678a7193c58346a367114b3da57ac, type: 3}
