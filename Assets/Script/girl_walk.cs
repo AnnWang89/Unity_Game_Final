@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,8 @@ public class girl_walk : MonoBehaviour
     // Start is called before the first frame update
     Animator animator;
     CharacterController charController;
-    public float moveSpeed = 5f;//²¾°Ê³t«×
-    public float gravity = 20.0F;  //­«¤O
+    public float moveSpeed = 5f;//Â²Â¾Â°ÃŠÂ³tÂ«Ã—
+    public float gravity = 20.0F;  //Â­Â«Â¤O
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 rotationDircetion;
     public float _rotationSpeed = 180;
@@ -17,7 +18,7 @@ public class girl_walk : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        charController = GetComponent<CharacterController>(); //§âCharacterController¸j¨ìcontroller
+        charController = GetComponent<CharacterController>(); //Â§Ã¢CharacterControllerÂ¸jÂ¨Ã¬controller
     }
 
     // Update is called once per frame
@@ -49,3 +50,4 @@ public class girl_walk : MonoBehaviour
         transform.Rotate(rotationDircetion);
     }
 }
+
