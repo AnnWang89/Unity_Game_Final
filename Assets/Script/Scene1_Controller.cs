@@ -8,18 +8,20 @@ using UnityEngine.SceneManagement;
 
 public class Scene1_Controller : MonoBehaviour
 {
-    //public Button btnBack;
+    public Button musiccontrol;
     public AudioClip bgm;
     AudioSource audiosource;
     public GameObject Guide;
     public Text Guidetext;
+    public Text bgmtext;
     public GameObject door;
     private Vector3 rotationDircetion;
+    int counter=0;
     void Start()
     {
         audiosource = GetComponent<AudioSource>();
         audiosource.PlayOneShot(bgm);
-        //btnBack.onClick.AddListener(ClickBack);
+        musiccontrol.onClick.AddListener(musicONandOFF);
         Guidetext.text = "Hello！Could you help me find the key of my house?"+"\n"+"Love U Princess ^ ^"+"\n"+ "                                                                                            < Press Space to start > ";
         Guide.gameObject.SetActive(true);
         Debug.Log("start!");
@@ -37,10 +39,21 @@ public class Scene1_Controller : MonoBehaviour
             Debug.Log("open");
         } 
     }
-    private void ClickBack()
-    { 
-        Debug.Log("CLICK Back!");
-        SceneManager.LoadScene("MainUI");
-        Debug.Log("MainUI Load Success");
+    private void musicONandOFF()
+    {
+        if(counter%2==0)
+        {
+            bgmtext.text = "BGM OFF";
+            audiosource.Pause();
+        }
+        else
+        {
+            bgmtext.text = "BGM ON";
+            audiosource.Play();
+        }
+        counter++;
+        //Debug.Log("CLICK Back!");
+        //SceneManager.LoadScene("MainUI");
+        //Debug.Log("MainUI Load Success");
     }
 }
