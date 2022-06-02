@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class girl_walk : MonoBehaviour
+public class girl_walk3 : MonoBehaviour
 {
     // Start is called before the first frame update
     Animator animator;
@@ -14,11 +14,22 @@ public class girl_walk : MonoBehaviour
     private Vector3 rotationDircetion;
     public float _rotationSpeed = 180;
     public GameObject girl;
+    public GameObject Lights;
 
+    public AudioSource switch_sound; // audio of the switcher
+    public ParticleSystem dust_particles; // dust particles
+
+    private Light spotlight;
+    private Material ambient_light_material;
+    private Color ambient_mat_color;
+    private bool is_enabled = true;
     void Start()
     {
         animator = GetComponent<Animator>();
         charController = GetComponent<CharacterController>(); //§âCharacterController¸j¨ìcontroller
+        spotlight = Lights.transform.Find("Spotlight").GetComponent<Light>();
+        ambient_light_material = Lights.transform.Find("ambient").GetComponent<Renderer>().material;
+        ambient_mat_color = ambient_light_material.GetColor("_TintColor");
     }
 
     // Update is called once per frame
@@ -37,9 +48,12 @@ public class girl_walk : MonoBehaviour
             animator.ResetTrigger("walk_front");
             animator.SetTrigger("stand");
         }
-        if (Input.GetKey(KeyCode.Space))
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-           
+            Switch();
+            Debug.Log("Switch ");
+            
         }
         rotationDircetion = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -49,5 +63,35 @@ public class girl_walk : MonoBehaviour
         charController.Move(moveDirection * Time.deltaTime);
         transform.Rotate(rotationDircetion);
     }
+    public void Switch()
+    {
+        Debug.Log("Switch in");
+        
+        is_enabled = !is_enabled;
+
+        Lights.SetActive(is_enabled);
+
+        if (switch_sound != null)
+            switch_sound.Play();
+       
+    }
+
+    public void Enable_Particles(bool value)
+    {
+        if (dust_particles != null)
+        {
+            if (value)
+            {
+                dust_particles.gameObject.SetActive(true);
+                dust_particles.Play();
+            }
+            else
+            {
+                dust_particles.Stop();
+                dust_particles.gameObject.SetActive(false);
+            }
+        }
+    }
+   
 }
 
