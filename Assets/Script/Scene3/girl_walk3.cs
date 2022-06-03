@@ -9,6 +9,8 @@ public class girl_walk3 : MonoBehaviour
     Animator animator;
     CharacterController charController;
     public float moveSpeed = 5f;//²¾°Ê³t«×
+    public float moveSpeedDefault = 10.0F;  //重力
+    public float moveSpeedUP = 20.0F;  //重力
     public float gravity = 20.0F;  //­«¤O
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 rotationDircetion;
@@ -47,6 +49,15 @@ public class girl_walk3 : MonoBehaviour
         {
             animator.ResetTrigger("walk_front");
             animator.SetTrigger("stand");
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            moveSpeed = moveSpeedUP;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            moveSpeed = moveSpeedDefault;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
