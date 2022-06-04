@@ -18,6 +18,7 @@ public class girl_walk3 : MonoBehaviour
     public GameObject girl;
     public GameObject Lights;
 
+
     public AudioSource switch_sound; // audio of the switcher
     public ParticleSystem dust_particles; // dust particles
 
@@ -25,6 +26,7 @@ public class girl_walk3 : MonoBehaviour
     private Material ambient_light_material;
     private Color ambient_mat_color;
     private bool is_enabled = true;
+    bool one_thing = true;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -65,6 +67,10 @@ public class girl_walk3 : MonoBehaviour
             Switch();
             Debug.Log("Switch ");
             
+            
+            
+
+
         }
         rotationDircetion = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
