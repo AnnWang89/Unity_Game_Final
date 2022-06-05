@@ -23,15 +23,27 @@ public class Scene1_pass : MonoBehaviour
         //Debug.Log(other.transform.name);
         if (other.gameObject.name == "girl")
         {
-            Guidetext.text = "Thank you to find my key!!!!  And now, you can come in my house!" + "\n" +"Love you sooooo much <3" + "                                                                                             < Press Space to start > ";
+            Guidetext.text = "Thank you to find my key!!!!  And now, you can come in my house!" + "\n" + "Love you sooooo much <3";
             Guide.gameObject.SetActive(true);
             if (Input.GetKey(KeyCode.Space))
             {
-                Guide.gameObject.SetActive(false);
-                SceneManager.LoadScene("Scene2");
+               
             }
+            StartCoroutine(Wait());
             //rotationDircetion = new Vector3(0, 0, 90);
             //door.gameObject.transform.Rotate(rotationDircetion);
         }
+    }
+    IEnumerator Wait()
+    {
+        Debug.Log("Waiting");
+
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Scene2");
+        Guide.gameObject.SetActive(false);
+        
+
+
+
     }
 }
