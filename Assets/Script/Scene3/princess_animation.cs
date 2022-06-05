@@ -103,7 +103,7 @@ public class princess_animation : MonoBehaviour
         }
         */
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("MainUI");
+        SceneManager.LoadScene("SceneEnd");
         Debug.Log("MainUI Load Success");
 
     }
