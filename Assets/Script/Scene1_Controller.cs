@@ -9,20 +9,26 @@ using UnityEngine.SceneManagement;
 public class Scene1_Controller : MonoBehaviour
 {
     public Button musiccontrol;
+    public Button weathercontrol;
     public AudioClip bgm;
     AudioSource audiosource;
     public GameObject Guide;
     public Text Guidetext;
     public Text bgmtext;
     public GameObject door;
+    public GameObject opendoor;
+    public GameObject particlesystem;
     private Vector3 rotationDircetion;
-    int counter=0;
+    int counter = 0;
+    int weathercounter;
+    int trigger = 0;
     void Start()
     {
         audiosource = GetComponent<AudioSource>();
         audiosource.PlayOneShot(bgm);
         musiccontrol.onClick.AddListener(musicONandOFF);
-        Guidetext.text = "Hello！Could you help me find the key of my house?"+"\n"+"Love U Princess ^ ^"+"\n"+ "                                                                                            < Press Space to start > ";
+        weathercontrol.onClick.AddListener(snow);
+        Guidetext.text = "Hello！Could you help me find the key of my house?"+"\n"+"Love U Princess ^ ^"+"\n"+ "                                                           < Press Space to start & forward to open door> ";
         Guide.gameObject.SetActive(true);
         Debug.Log("start!");
     }
@@ -30,14 +36,21 @@ public class Scene1_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("space");
             Guide.gameObject.SetActive(false);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "opendoor" && trigger ==0)
+        {
+            trigger = 1;
+            Debug.Log("opennnnnn");
             rotationDircetion = new Vector3(0, 0, 90);
             door.gameObject.transform.Rotate(rotationDircetion);
-            Debug.Log("open");
-        } 
+        }
+
     }
     private void musicONandOFF()
     {
@@ -55,5 +68,18 @@ public class Scene1_Controller : MonoBehaviour
         //Debug.Log("CLICK Back!");
         //SceneManager.LoadScene("MainUI");
         //Debug.Log("MainUI Load Success");
+    }
+    private void snow()
+    {
+        if (weathercounter % 2 == 0)
+        {
+            particlesystem.GetComponent<ParticleSystem>().Stop();
+        }
+        else
+        {
+            particlesystem.GetComponent<ParticleSystem>().Play();
+        }
+        weathercounter++;
+
     }
 }

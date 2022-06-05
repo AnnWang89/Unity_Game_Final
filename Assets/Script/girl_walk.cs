@@ -27,7 +27,7 @@ public class girl_walk : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey("down") || Input.GetKey("left") || Input.GetKey("right"))
         {
-            Debug.Log("front");
+            //Debug.Log("front");
             animator.ResetTrigger("stand");
             animator.SetTrigger("walk_front");
 
@@ -43,7 +43,7 @@ public class girl_walk : MonoBehaviour
         }
         rotationDircetion = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        moveDirection = transform.TransformDirection(moveDirection*4);
+        moveDirection = transform.TransformDirection(moveDirection*6);
         moveDirection *= moveSpeed;
         moveDirection.y -= gravity * Time.deltaTime;
         charController.Move(moveDirection * Time.deltaTime);

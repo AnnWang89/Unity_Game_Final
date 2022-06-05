@@ -30,14 +30,13 @@ public class Scene1_key : MonoBehaviour
             Destroy(this.gameObject);
             Guidetext.text = "Exit is opened!"+"\n"+ "                                                                                         < Press Space to start > ";
             Guide.gameObject.SetActive(true);
-            getkeyornot.text = "KEY :¡@¢Ý";
+            getkeyornot.text = "KEY :¢Ý";
             if (Input.GetKey(KeyCode.Space))
             {
                 Guide.gameObject.SetActive(false);
             }
             rotationDircetion = new Vector3(0, 0, 90);
             door.gameObject.transform.Rotate(rotationDircetion);
-            Debug.Log("success");
         }
     }
 }
