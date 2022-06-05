@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+[RequireComponent(typeof(AudioSource))]
 public class MainUI_Controller : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Button btnStart1, btnStart2, btnStart3, btnSetting, btnEnd;
+    public Button btnStart1, btnStart2, btnStart3, btnStory, btnEnd;
     public GameObject Panel_Setting;
     public GameObject Canvas_Setting;
+    public AudioClip bgm;
+    AudioSource audiosource;
     void Start()
     {
-        btnSetting.onClick.AddListener(ClickSetting);
+        audiosource = GetComponent<AudioSource>();
+        audiosource.PlayOneShot(bgm);
+        btnStory.onClick.AddListener(ClickStory);
         btnStart1.onClick.AddListener(ClickStart1);
         btnStart2.onClick.AddListener(ClickStart2);
         btnStart3.onClick.AddListener(ClickStart3);
@@ -25,7 +30,7 @@ public class MainUI_Controller : MonoBehaviour
         //test test
     }
 
-    private void ClickSetting()
+    private void ClickStory()
     {
         Panel_Setting.SetActive(true); 
         this.gameObject.SetActive(false);
