@@ -87,21 +87,7 @@ public class princess_animation : MonoBehaviour
     
     IEnumerator timer()
     {
-        /*
-        while (true)
-        {
-            
-            Dircetion = new Vector3(0, 0, 2*count);
-            transform.TransformDirection(Dircetion);
-            Debug.Log("WaitForSeconds");
-            if (count > 20)
-            {
-                break;
-            }
-            count++;
-
-        }
-        */
+        
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("SceneEnd");
         Debug.Log("MainUI Load Success");
