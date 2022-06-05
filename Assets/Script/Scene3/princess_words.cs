@@ -8,6 +8,7 @@ public class princess_words : MonoBehaviour
 
     public TextMeshPro princess_text;
     public GameObject bo_princess;
+    public GameObject boomerang_hand;
     void Start()
     {
 
@@ -31,6 +32,7 @@ public class princess_words : MonoBehaviour
         {
             princess_text.text = "THANK YOU!!";
             bo_princess.SetActive(true);
+            boomerang_hand.SetActive(false);
         }
 
     }
