@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class princess_animation : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -12,7 +14,7 @@ public class princess_animation : MonoBehaviour
     private Vector3 rotationDircetion;
     private Vector3 Dircetion;
     bool wake = false;
-
+    int count = 0;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -68,12 +70,43 @@ public class princess_animation : MonoBehaviour
         animator.ResetTrigger("damage");
         animator.SetTrigger("origin");
         animator.ResetTrigger("jump");
+
         if(angry_text.text == "THANK YOU!!")
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3f);
             angry_text.text = "LET'S GO !!";
+            
+            animator.SetTrigger("walk");
+            StartCoroutine(timer());
+            //animator.ResetTrigger("jump");
+
+
         }
 
     }
+    
+    IEnumerator timer()
+    {
+        /*
+        while (true)
+        {
+            
+            Dircetion = new Vector3(0, 0, 2*count);
+            transform.TransformDirection(Dircetion);
+            Debug.Log("WaitForSeconds");
+            if (count > 20)
+            {
+                break;
+            }
+            count++;
+
+        }
+        */
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("SceneEnd");
+        Debug.Log("MainUI Load Success");
+
+    }
+    
 
 }

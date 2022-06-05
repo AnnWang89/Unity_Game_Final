@@ -52,7 +52,7 @@ public class girl_walk3 : MonoBehaviour
             animator.ResetTrigger("walk_front");
             animator.SetTrigger("stand");
         }
-
+        /*
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             moveSpeed = moveSpeedUP;
@@ -61,7 +61,7 @@ public class girl_walk3 : MonoBehaviour
         {
             moveSpeed = moveSpeedDefault;
         }
-
+        */
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Switch();
