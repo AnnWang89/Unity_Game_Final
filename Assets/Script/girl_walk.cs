@@ -27,7 +27,7 @@ public class girl_walk : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey("down") || Input.GetKey("left") || Input.GetKey("right"))
         {
-            Debug.Log("front");
+            //Debug.Log("front");
             animator.ResetTrigger("stand");
             animator.SetTrigger("walk_front");
 
@@ -48,6 +48,22 @@ public class girl_walk : MonoBehaviour
         moveDirection.y -= gravity * Time.deltaTime;
         charController.Move(moveDirection * Time.deltaTime);
         transform.Rotate(rotationDircetion);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.name == "w_sword_B")
+        {
+            //Debug.Log("dead");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "w_sword_B")
+        {
+            Debug.Log("dead");
+        }
     }
 }
 
