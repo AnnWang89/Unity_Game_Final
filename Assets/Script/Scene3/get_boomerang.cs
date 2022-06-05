@@ -19,7 +19,7 @@ public class get_boomerang : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (princess_text.text = "THANK YOU!!")
+        if (princess_text.text == "THANK YOU!!")
         {
             boomerang_hand.SetActive(false);
         }
