@@ -9,7 +9,7 @@ public class KnightNavMesh : MonoBehaviour
     private Vector3 originalPos;
     public Transform girl;
     private float chaseDist = 100f;
-    private float attackDist = 10f;
+    private float attackDist = 20f;
 
     Animator animator;
 
@@ -25,7 +25,7 @@ public class KnightNavMesh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Vector3.Distance(transform.position, girl.position));
+        //Debug.Log(Vector3.Distance(transform.position, girl.position));
 
         if (Vector3.Distance(transform.position, girl.position) < chaseDist)
         {
@@ -33,8 +33,7 @@ public class KnightNavMesh : MonoBehaviour
             animator.SetBool("attack", false);
             animator.SetBool("wait", false);
             animator.SetBool("run", true);
-            //Debug.Log(girl.position + " girl");
-            //Debug.Log(transform.position + " tr");
+
             if (Vector3.Distance(transform.position, girl.position) < attackDist)
             {
                 animator.SetBool("run", false);
@@ -47,7 +46,7 @@ public class KnightNavMesh : MonoBehaviour
             {
                 animator.SetBool("run", false);
                 animator.SetBool("wait", true);
-                Debug.Log("Stop");
+                //Debug.Log("Stop");
             }
             else
             {
@@ -55,7 +54,6 @@ public class KnightNavMesh : MonoBehaviour
                 //Debug.Log("back");
             }
         }
-        //knight.SetDestination(girl.position);
     }
 
 
