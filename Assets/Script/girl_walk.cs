@@ -49,21 +49,5 @@ public class girl_walk : MonoBehaviour
         charController.Move(moveDirection * Time.deltaTime);
         transform.Rotate(rotationDircetion);
     }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.name == "w_sword_B")
-        {
-            //Debug.Log("dead");
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "w_sword_B")
-        {
-            Debug.Log("dead");
-        }
-    }
 }
 
