@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class KnightNavMesh : MonoBehaviour
+public class Knight_navmesh_animation : MonoBehaviour
 {
     private NavMeshAgent knight;
     private Vector3 originalPos;
     public Transform girl;
     private float chaseDist = 100f;
-    private float attackDist = 10f;
+    private float attackDist = 20f;
+    //private bool is
+
+    public AudioClip runMusic;
+    public AudioClip attackMusic;
 
     Animator animator;
+    AudioSource audiosource;
 
     // Start is called before the first frame update
     void Start()
@@ -19,27 +24,31 @@ public class KnightNavMesh : MonoBehaviour
         knight = GetComponent<NavMeshAgent>();
         originalPos = GetComponent<Transform>().position;
         animator = GetComponent<Animator>();
+        audiosource = GetComponent<AudioSource>();
         //Debug.Log(originalPos+"orig");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Vector3.Distance(transform.position, girl.position));
+        //Debug.Log(Vector3.Distance(transform.position, girl.position));
 
         if (Vector3.Distance(transform.position, girl.position) < chaseDist)
         {
+            //StartCoroutine(playRunMusic());
+            //playRunMusic();
             knight.SetDestination(girl.position);
             animator.SetBool("attack", false);
             animator.SetBool("wait", false);
             animator.SetBool("run", true);
-            //Debug.Log(girl.position + " girl");
-            //Debug.Log(transform.position + " tr");
+
             if (Vector3.Distance(transform.position, girl.position) < attackDist)
             {
+                //playAttackMusic();
                 animator.SetBool("run", false);
                 animator.SetBool("attack", true);
             }
+            //audiosource.Play();
         }
         else
         {
@@ -47,7 +56,7 @@ public class KnightNavMesh : MonoBehaviour
             {
                 animator.SetBool("run", false);
                 animator.SetBool("wait", true);
-                Debug.Log("Stop");
+                //Debug.Log("Stop");
             }
             else
             {
@@ -55,15 +64,22 @@ public class KnightNavMesh : MonoBehaviour
                 //Debug.Log("back");
             }
         }
-        //knight.SetDestination(girl.position);
     }
 
+    IEnumerator playRunMusic()
+    {
+        audiosource.PlayOneShot(runMusic);
+        yield return new WaitForSeconds(0.5f);
+    }
+    public void playAttackMusic()
+    {
+        audiosource.PlayOneShot(attackMusic);
+    }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.name == "Mesh_Costume_02_Skin" || other.gameObject.name == "Face_BlendShapes")
-    //    {
-    //        //Debug.Log("dead");
-    //    }
-    //}
+    IEnumerator Example()
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(0.5f);
+        print(Time.time);
+    }
 }
