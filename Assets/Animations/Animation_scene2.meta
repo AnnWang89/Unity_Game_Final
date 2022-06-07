@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animations/Animation_scene2.meta
 guid: 92bcd79ef43bee14480e58f018d9d9dd
+========
+guid: f06fb8845b712ca4ebf7900aa3c4889d
+>>>>>>>> c24eeba5855107d535d617f7ddd590a5b8ec4bcf:Assets/Samples.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
