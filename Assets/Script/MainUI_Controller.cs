@@ -9,6 +9,7 @@ public class MainUI_Controller : MonoBehaviour
     // Start is called before the first frame update
     public Button btnStart1, btnStart2, btnStart3, btnStory, btnEnd;
     public GameObject Panel_Setting;
+    public GameObject Panel_main;
     public GameObject Canvas_Setting;
     public AudioClip bgm;
     AudioSource audiosource;
@@ -32,8 +33,8 @@ public class MainUI_Controller : MonoBehaviour
 
     private void ClickStory()
     {
-        Panel_Setting.SetActive(true); 
-        this.gameObject.SetActive(false);
+        Panel_Setting.SetActive(true);
+        Panel_main.gameObject.SetActive(false);
         Debug.Log("CLICK Setting!");
     }
     private void ClickStart1()
