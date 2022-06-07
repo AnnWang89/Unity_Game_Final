@@ -10,10 +10,13 @@ public class Knight_navmesh_animation : MonoBehaviour
     public Transform girl;
     private float chaseDist = 100f;
     private float attackDist = 20f;
+<<<<<<< HEAD:Assets/Script/Scene2/Knight_navmesh_animation.cs
     //private bool is
 
     public AudioClip runMusic;
     public AudioClip attackMusic;
+=======
+>>>>>>> c24eeba5855107d535d617f7ddd590a5b8ec4bcf:Assets/Script/Scene2/KnightNavMesh.cs
 
     Animator animator;
     AudioSource audiosource;
